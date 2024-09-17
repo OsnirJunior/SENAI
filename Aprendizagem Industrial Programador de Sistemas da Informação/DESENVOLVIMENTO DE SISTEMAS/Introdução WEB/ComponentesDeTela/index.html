@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de interação com HTML</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="main">
+        <h1>Interação com o Input, TextArea e Botão</h1>
+        <label for="inputText">Digite algo:</label>
+        <br>
+        <input type="text" id="inputText" class="inputText" placeholder="Escreva algo aqui...">
+        <br><br>  
+        <button id="addTextArea" class="addTextArea" onclick="escreve()">Adicionar TextArea</button>
+        <br><br>
+        <label for="textArea">Área de Texto:</label>
+        <br>
+        <textarea id="textArea" class="textArea" disabled></textarea>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

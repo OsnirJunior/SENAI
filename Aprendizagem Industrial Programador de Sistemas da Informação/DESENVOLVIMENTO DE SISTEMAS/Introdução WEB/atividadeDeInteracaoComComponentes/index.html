@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>Atividade de Interação com Componentes</h1>
+        <div class="inputContainer">
+            <label for="input1">Caixa de Texto:</label>
+            <input type="text" id="input1" placeholder="Este é um teste de entrada de texto" name="input1">
+            <br>    
+            <label for="textarea">Textarea:</label>
+            <textarea id="textarea" rows="2" name="textarea" placeholder="Este é um teste de entrada de texto com multiplas linhas"></textarea>
+        </div>
+        <br><br>
+        <div class="checkbox-group">
+            <div class="auxi">
+                <label class="checkbox-label">Checkboxes:</label>
+                <label><input type="checkbox" value="op1" id="opcao1">Opção 1</label>
+                <label><input type="checkbox" value="op2" id="opcao2">Opção 2</label>
+                <label><input type="checkbox" value="op3" id="opcao3">Opção 3</label>
+            </div>
+        </div>
+        <br><br>
+        <div class="radio-group">
+            <div class="auxi2">
+                <h2>Radio Buttons:</h2>
+                <label><input type="radio" name="opcoes" value="Radio 1" id="radio1">Radio 1</label>
+                <label><input type="radio" name="opcoes" value="Radio 2" id="radio2">Radio 2</label>
+                <label><input type="radio" name="opcoes" value="Radio 3" id="radio3">Radio 3</label>
+            </div>
+        </div>
+        <br><br>
+        <button onclick="exibirSelecionados()" id="button1">Enviar</button>
+        <br><br>
+        <h1>Adicionar Linha à Tabela</h1>
+        <div class="inputContainer">
+            <label for="input2">Nome:</label>
+            <input type="text" id="input2" placeholder="Nome" name="input2">
+            <br>  
+            <label for="input3">Idade:</label>
+            <input type="text" id="input3" placeholder="Idade" name="input3">
+            <br>  
+            <label for="input4">Email:</label>
+            <input type="text" id="input4" placeholder="Email" name="input4">
+            <br><br>
+            <button onclick="addLine()" id="button2">Adicionar Linha</button>
+        </div>
+        <br><br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>João</td>
+                    <td>30</td>
+                    <td>joao@example.com</td>
+                </tr>
+                <tr>
+                    <td>Maria</td>
+                    <td>25</td>
+                    <td>maria@example.com</td>
+                </tr>
+                <tr>
+                    <td>Pedro</td>
+                    <td>35</td>
+                    <td>pedro@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <div class="inputContainer2">
+            <div id="input5" class="text-display"></div>
+            <br>
+            <div id="input8Display"></div>
+            <br>
+            <input type="text" id="input6" name="input6" disabled>
+            <br>
+            <input type="text" id="input7" name="input7" disabled>
+        </div>
+    </main>
+</body>
+</html>

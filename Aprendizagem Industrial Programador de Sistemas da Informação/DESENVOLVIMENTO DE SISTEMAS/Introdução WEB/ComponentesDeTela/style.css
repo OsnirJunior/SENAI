@@ -1,0 +1,53 @@
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+h1{
+    font-size: 28px;
+}
+
+main{
+    border: 10px solid rgb(196, 194, 194);
+    background-color: rgb(196, 194, 194);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+.inputText{
+    width: 500px;
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+}
+
+.addTextArea{
+    cursor: pointer;
+    font-size: 15px;
+    width: 523px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.addTextArea:hover{
+    background-color: rgb(221, 221, 221);
+    color: rgb(85, 85, 85);
+}
+
+.textArea{
+    width: 518px;
+    height: 80px; 
+    background-color: white;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif; 
+    font-size: 14px; 
+    font-weight: bold;  
+    color: #333; 
+}

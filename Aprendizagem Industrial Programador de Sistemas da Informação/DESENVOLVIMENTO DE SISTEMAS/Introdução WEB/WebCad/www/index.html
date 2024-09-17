@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Web</title>
+
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <h1>Cadastro de Usuários</h1>
+
+    <from id="userForm">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Telefone:</label>
+        <input type="text" id="phone" name="phone" required>
+
+        <label for="addres">Endereço:</label>
+        <input type="text" id="addres" name="addres" required>
+
+        <label for="city">Nome:</label>
+        <input type="text" id="city" name="city" required>
+
+        <label for="state">Nome:</label>
+        <input type="text" id="state" name="state" required>
+
+        <button type="button" id="addButton">Adicionar</button>
+        <button type="button" id="clearButton">Limpar</button>
+    </from>
+
+    <h2>Registros:</h2>
+    <table id="userTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Telefone</th>
+                <th>Endereço</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Registros serão inseridos aqui-->
+        </tbody>
+    </table>
+
+
+</body>
+</html>
