@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Estudante</title>
+</head>
+<body>
+    <h1 th:text="${#strings.isEmpty(estudante.id) ? 'Novo Estudante' : 'Editar Estudante'}"></h1>
+    
+    <form th:action="@{/estudantes/novo}" th:object="${estudante}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" th:field="*{nome}" required />
+        
+        <label for="data_nascimento">Data de Nascimento:</label>
+        <input type="date" id="data_nascimento" th:field="*{data_nascimento}" required />
+        
+        <button type="submit">Salvar</button>
+        <a th:href="@{/estudantes}">Cancelar</a>
+    </form>
+</body>
+</html>

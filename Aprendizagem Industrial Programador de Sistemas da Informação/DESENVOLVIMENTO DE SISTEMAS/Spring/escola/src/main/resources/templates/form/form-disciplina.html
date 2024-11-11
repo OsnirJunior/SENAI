@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Disciplina</title>
+</head>
+<body>
+    <h1 th:text="${#strings.isEmpty(disciplina.id) ? 'Nova Disciplina' : 'Editar Disciplina'}"></h1>
+    
+    <form th:action="@{/disciplinas/nova}" th:object="${disciplina}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" th:field="*{nome}" required />
+        
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" th:field="*{descricao}" required></textarea>
+        
+        <button type="submit">Salvar</button>
+        <a th:href="@{/disciplinas}">Cancelar</a>
+    </form>
+</body>
+</html>

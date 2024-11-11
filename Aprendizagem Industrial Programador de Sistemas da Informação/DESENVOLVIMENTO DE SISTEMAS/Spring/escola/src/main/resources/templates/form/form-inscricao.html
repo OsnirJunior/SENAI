@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar ou Editar Inscrição</title>
+</head>
+<body>
+    <h1 th:text="${inscricao.id != null} ? 'Editar Inscrição' : 'Criar Inscrição'"></h1>
+    <form th:action="@{/inscricoes/editar/{id}(id=${inscricao.id})}" th:object="${inscricao}" method="post">
+        <label for="estudante">Estudante</label>
+        <select th:field="*{estudante}">
+            <option th:each="estudante : ${estudantes}" 
+                    th:value="${estudante.id}" 
+                    th:text="${estudante.nome}"></option>
+        </select>
+        <br><br>
+    
+        <label for="disciplina">Disciplina</label>
+        <select th:field="*{disciplina}">
+            <option th:each="disciplina : ${disciplinas}" 
+                    th:value="${disciplina.id}" 
+                    th:text="${disciplina.nome}"></option>
+        </select>
+        <br><br>
+    
+        <button type="submit">Salvar Edição</button>
+    </form>
+    
+</body>
+</html>

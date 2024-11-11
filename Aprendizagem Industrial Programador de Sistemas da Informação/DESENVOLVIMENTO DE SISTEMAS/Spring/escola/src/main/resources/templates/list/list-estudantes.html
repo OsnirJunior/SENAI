@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Estudantes</title>
+</head>
+<body>
+    <h1>Estudantes</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Data de Nascimento</th>
+        </tr>
+        <tr th:each="estudante : ${estudantes}">
+            <td th:text="${estudante.id}">ID</td> <!-- Altere para 'id' -->
+            <td th:text="${estudante.nome}">Nome</td>
+            <td th:text="${estudante.data_nascimento}">Data de Nascimento</td>
+        </tr>
+    </table>
+    
+    <a th:href="@{/estudantes/novo}">Adicionar Novo Estudante</a>
+</body>
+</html>
