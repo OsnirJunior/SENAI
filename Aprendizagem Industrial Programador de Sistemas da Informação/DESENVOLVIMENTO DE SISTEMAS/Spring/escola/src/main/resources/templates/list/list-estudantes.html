@@ -1,24 +1,50 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Estudantes</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Seu arquivo CSS -->
 </head>
 <body>
-    <h1>Estudantes</h1>
+    <h1>Lista de Estudantes</h1>
+
+    <!-- Botão para cadastrar um novo estudante -->
+    <div>
+        <a href="/estudantes/novo" class="button">Cadastrar Novo Estudante</a>
+    </div>
+
+    <!-- Tabela com a lista de estudantes -->
     <table>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Data de Nascimento</th>
-        </tr>
-        <tr th:each="estudante : ${estudantes}">
-            <td th:text="${estudante.id}">ID</td> <!-- Altere para 'id' -->
-            <td th:text="${estudante.nome}">Nome</td>
-            <td th:text="${estudante.data_nascimento}">Data de Nascimento</td>
-        </tr>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="estudante : ${estudantes}">
+                <td th:text="${estudante.id}"></td>
+                <td th:text="${estudante.nome}"></td>
+                <td th:text="${estudante.data_nascimento}"></td>
+                <td th:text="${estudante.email}"></td>
+                <td>
+                    <a th:href="@{/estudantes/editar/{id}(id=${estudante.id})}">Editar</a>
+                    <a th:href="@{/estudantes/excluir/{id}(id=${estudante.id})}" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
     </table>
-    
-    <a th:href="@{/estudantes/novo}">Adicionar Novo Estudante</a>
+
+    <!-- Botões para cadastrar disciplinas e inscrições -->
+    <div>
+        <a href="/disciplinas" class="button">Cadastrar Disciplina</a>
+        <a href="/inscricoes" class="button">Cadastrar Inscrição</a>
+    </div>
+
 </body>
 </html>

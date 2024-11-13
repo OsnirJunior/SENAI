@@ -12,8 +12,8 @@ public class Disciplina {
     private Long id;
 
     private String nome;
-
-    private String descricao; // Adicionando o campo descricao
+    private String descricao; // Descrição da disciplina
+    private String professor; // Nome do professor responsável pela disciplina
 
     @OneToMany(mappedBy = "disciplina")
     private Set<Inscricao> inscricoes = new HashSet<>();
@@ -35,12 +35,20 @@ public class Disciplina {
         this.nome = nome;
     }
 
-    public String getDescricao() { // Adicionando o getter para descricao
+    public String getDescricao() {
         return descricao;
     }
 
-    public void setDescricao(String descricao) { // Adicionando o setter para descricao
+    public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(String professor) {
+        this.professor = professor;
     }
 
     public Set<Inscricao> getInscricoes() {

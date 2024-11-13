@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulário de Disciplina</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Seu arquivo CSS -->
 </head>
 <body>
     <h1 th:text="${#strings.isEmpty(disciplina.id) ? 'Nova Disciplina' : 'Editar Disciplina'}"></h1>
@@ -15,9 +16,12 @@
         
         <label for="descricao">Descrição:</label>
         <textarea id="descricao" th:field="*{descricao}" required></textarea>
+
+        <label for="professor">Professor:</label> <!-- Novo campo para o professor -->
+        <input type="text" id="professor" th:field="*{professor}" required />
         
         <button type="submit">Salvar</button>
-        <a th:href="@{/disciplinas}">Cancelar</a>
+        <a class="cancelar" th:href="@{/disciplinas}">Cancelar</a>
     </form>
 </body>
 </html>

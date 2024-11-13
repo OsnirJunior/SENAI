@@ -1,5 +1,6 @@
 package com.psii.escola.model;
 
+import java.time.LocalDate;
 import jakarta.persistence.*;
 
 @Entity
@@ -17,7 +18,10 @@ public class Inscricao {
     @JoinColumn(name = "disciplina_id")
     private Disciplina disciplina;
 
-    // Getters and Setters
+    private LocalDate dataInscricao; // Data da inscrição
+
+    // Getters e Setters
+
     public Long getId() {
         return id;
     }
@@ -40,5 +44,13 @@ public class Inscricao {
 
     public void setDisciplina(Disciplina disciplina) {
         this.disciplina = disciplina;
+    }
+
+    public LocalDate getDataInscricao() {
+        return dataInscricao;
+    }
+
+    public void setDataInscricao(LocalDate dataInscricao) {
+        this.dataInscricao = dataInscricao;
     }
 }

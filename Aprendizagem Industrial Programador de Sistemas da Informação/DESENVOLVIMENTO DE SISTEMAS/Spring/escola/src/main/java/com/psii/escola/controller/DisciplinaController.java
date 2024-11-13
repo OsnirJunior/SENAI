@@ -2,12 +2,12 @@ package com.psii.escola.controller;
 
 import com.psii.escola.model.Disciplina;
 import com.psii.escola.service.DisciplinaService;
+import com.psii.escola.service.InscricaoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/disciplinas")
@@ -16,48 +16,54 @@ public class DisciplinaController {
     @Autowired
     private DisciplinaService disciplinaService;
 
-    // Método para listar todas as disciplinas
+    @Autowired
+    private InscricaoService inscricaoService;
+
+    // Exibe a lista de disciplinas
     @GetMapping
     public String listarDisciplinas(Model model) {
-        List<Disciplina> disciplinas = disciplinaService.getAllDisciplinas();
-        model.addAttribute("disciplinas", disciplinas);
-        return "list/list-disciplinas";
+        model.addAttribute("disciplinas", disciplinaService.getAllDisciplinas());
+        return "list/list-disciplinas"; // Página de listagem das disciplinas
     }
 
-    // Método para exibir o formulário de criação de nova disciplina
+    // Exibe o formulário para adicionar uma nova disciplina
     @GetMapping("/nova")
-    public String formNovaDisciplina(Model model) {
+    public String novaDisciplinaForm(Model model) {
         model.addAttribute("disciplina", new Disciplina());
-        return "form/form-disciplina";
+        return "form/form-disciplina"; // Página de formulário para adicionar uma nova disciplina
     }
 
-    // Método para salvar a nova disciplina
+    // Adiciona uma nova disciplina
     @PostMapping("/nova")
     public String salvarDisciplina(@ModelAttribute Disciplina disciplina) {
         disciplinaService.saveDisciplina(disciplina);
-        return "redirect:/disciplinas";
+        return "redirect:/disciplinas"; // Redireciona para a lista de disciplinas
     }
 
-    // Método para exibir os detalhes de uma disciplina
-    @GetMapping("/{id}")
-    public String detalhesDisciplina(@PathVariable Long id, Model model) {
-        Disciplina disciplina = disciplinaService.getDisciplinaById(id);
-        model.addAttribute("disciplina", disciplina);
-        return "detalhes-disciplina";
-    }
-
-    // (Opcional) Método para editar uma disciplina existente
+    // Exibe o formulário para editar uma disciplina
     @GetMapping("/editar/{id}")
-    public String formEditarDisciplina(@PathVariable Long id, Model model) {
+    public String editarDisciplinaForm(@PathVariable Long id, Model model) {
         Disciplina disciplina = disciplinaService.getDisciplinaById(id);
         model.addAttribute("disciplina", disciplina);
-        return "form/form-disciplina";
+        return "form/form-disciplina"; // Página de edição da disciplina
     }
 
-    // (Opcional) Método para excluir uma disciplina
+    // Atualiza as informações da disciplina
+    @PostMapping("/editar/{id}")
+    public String editarDisciplina(@PathVariable Long id, @ModelAttribute Disciplina disciplina) {
+        disciplina.setId(id);
+        disciplinaService.saveDisciplina(disciplina);
+        return "redirect:/disciplinas"; // Redireciona para a lista de disciplinas
+    }
+
+    // Exclui uma disciplina
     @GetMapping("/excluir/{id}")
-    public String excluirDisciplina(@PathVariable Long id) {
-        disciplinaService.deleteDisciplina(id);
-        return "redirect:/disciplinas";
+    public String excluirDisciplina(@PathVariable Long id, Model model) {
+        try {
+            disciplinaService.excluirDisciplina(id);
+        } catch (DataIntegrityViolationException e) {
+            return "erro/erro-exclusao";
+        }
+        return "redirect:/disciplinas"; // Redireciona para a lista de disciplinas
     }
 }

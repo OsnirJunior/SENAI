@@ -1,0 +1,131 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Título */
+h1 {
+    font-size: 2rem;
+    color: #4a90e2;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilo do formulário */
+form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Rótulos */
+label {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+/* Campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Foco nos campos de entrada */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+/* Botão de envio */
+button[type="submit"] {
+    background-color: #4a90e2;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito hover no botão de envio */
+button[type="submit"]:hover {
+    background-color: #357ab7;
+}
+
+/* Botão de voltar */
+a button {
+    background-color: #e94e77;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito hover no botão de voltar */
+a button:hover {
+    background-color: #d43e63;
+}
+
+/* Estilos para o botão cancelar */
+.cancelar {
+    background-color: #e74c3c; /* Cor de fundo vermelha */
+    color: white; /* Texto branco */
+    padding: 10px 220px; /* Espaçamento interno */
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 1rem; /* Tamanho da fonte */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de ponteiro para indicar interatividade */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efeito suave de transição */
+}
+
+/* Efeito de hover (passar o mouse) */
+.cancelar:hover {
+    background-color: #c0392b; /* Cor de fundo escura ao passar o mouse */
+    transform: scale(1.05); /* Aumenta um pouco o tamanho do botão */
+}
+
+/* Efeito de clique */
+.cancelar:active {
+    background-color: #e74c3c; /* Cor mantém a mesma */
+    transform: scale(0.98); /* Leve diminuição do tamanho ao clicar */
+}
+
+/* Efeito de foco (quando o botão é selecionado) */
+.cancelar:focus {
+    outline: none; /* Remove a borda padrão de foco */
+    box-shadow: 0 0 5px 2px rgba(231, 76, 60, 0.6); /* Adiciona uma sombra ao redor do botão */
+}

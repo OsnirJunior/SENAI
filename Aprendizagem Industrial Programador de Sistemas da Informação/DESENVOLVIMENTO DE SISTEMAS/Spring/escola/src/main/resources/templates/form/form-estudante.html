@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Formulário de Estudante</title>
+    <title>Cadastrar Estudante</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Seu arquivo CSS -->
 </head>
 <body>
-    <h1 th:text="${#strings.isEmpty(estudante.id) ? 'Novo Estudante' : 'Editar Estudante'}"></h1>
-    
-    <form th:action="@{/estudantes/novo}" th:object="${estudante}" method="post">
-        <input type="hidden" th:field="*{id}" />
-        
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" th:field="*{nome}" required />
-        
-        <label for="data_nascimento">Data de Nascimento:</label>
-        <input type="date" id="data_nascimento" th:field="*{data_nascimento}" required />
-        
-        <button type="submit">Salvar</button>
-        <a th:href="@{/estudantes}">Cancelar</a>
-    </form>
+
+<h1 th:text="${estudante.id == null ? 'Cadastrar Novo Estudante' : 'Editar Estudante'}"></h1>
+
+<form th:action="@{/estudantes}" th:object="${estudante}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" th:field="*{nome}" required/><br>
+
+    <label for="data_nascimento">Data de Nascimento:</label>
+    <input type="date" id="data_nascimento" th:field="*{data_nascimento}" required/><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" th:field="*{email}" required/><br>
+
+    <button type="submit">Salvar</button>
+</form>
+
+<a href="/estudantes">
+    <button>Voltar</button>
+</a>
+
 </body>
 </html>
+    

@@ -3,39 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de Inscrições</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Seu arquivo CSS -->
 </head>
 <body>
-    <h1>Inscrições</h1>
+    <h2>Lista de Inscrições</h2>
+    <a href="/inscricoes/novo">Cadastrar Nova Inscrição</a>
     <table>
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Estudante</th>
                 <th>Disciplina</th>
+                <th>Data de Inscrição</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="inscricao : ${inscricoes}">
-                <td th:text="${inscricao.id}"></td>
-                
-                <!-- Verificar se estudante não é nulo antes de acessar o nome -->
-                <td th:if="${inscricao.estudante != null}" th:text="${inscricao.estudante.nome}"></td>
-                <td th:unless="${inscricao.estudante != null}" th:text="'Estudante não encontrado'"></td>
-        
-                <!-- Verificar se disciplina não é nula antes de acessar o nome -->
-                <td th:if="${inscricao.disciplina != null}" th:text="${inscricao.disciplina.nome}"></td>
-                <td th:unless="${inscricao.disciplina != null}" th:text="'Disciplina não encontrada'"></td>
-        
+                <td th:text="${inscricao.estudante.nome}"></td>
+                <td th:text="${inscricao.disciplina.nome}"></td>
+                <td th:text="${inscricao.dataInscricao}"></td>
                 <td>
                     <a th:href="@{/inscricoes/editar/{id}(id=${inscricao.id})}">Editar</a>
                     <a th:href="@{/inscricoes/excluir/{id}(id=${inscricao.id})}">Excluir</a>
                 </td>
-                
             </tr>
         </tbody>
-        
     </table>
-    <a th:href="@{/inscricoes/nova}">Adicionar Nova Inscrição</a>
+    
+    <a href="/disciplinas" class="button">Cadastrar Disciplina</a>
+    <a href="/estudantes" class="button">Cadastrar Estudantes</a>
+    
 </body>
 </html>

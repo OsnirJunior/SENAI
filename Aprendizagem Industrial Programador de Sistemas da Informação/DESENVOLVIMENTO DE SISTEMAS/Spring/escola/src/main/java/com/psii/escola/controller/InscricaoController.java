@@ -26,63 +26,56 @@ public class InscricaoController {
     @Autowired
     private DisciplinaService disciplinaService;
 
-    // Mostrar a lista de inscrições
+    // Exibe a lista de inscrições
     @GetMapping
-    public String listarInscricoes(Model model) {
+    public String listInscricoes(Model model) {
         List<Inscricao> inscricoes = inscricaoService.getAllInscricoes();
         model.addAttribute("inscricoes", inscricoes);
-        return "list/list-inscricoes"; // Exibe a lista de inscrições
+        return "list/list-inscricoes"; // Página de listagem das inscrições
     }
 
-    // Exibir o formulário para nova inscrição
-    @GetMapping("/nova")
-    public String formNovaInscricao(Model model) {
-        // Carregar listas de estudantes e disciplinas
+    // Exibe o formulário para adicionar ou editar uma inscrição
+    @GetMapping("/novo")
+    public String novoFormInscricao(Model model) {
         List<Estudante> estudantes = estudanteService.getAllEstudantes();
         List<Disciplina> disciplinas = disciplinaService.getAllDisciplinas();
         model.addAttribute("estudantes", estudantes);
         model.addAttribute("disciplinas", disciplinas);
-
-        // Novo objeto de inscrição
         model.addAttribute("inscricao", new Inscricao());
-
-        return "form/form-inscricao"; // Exibe o formulário para criar nova inscrição
+        return "form/form-inscricao"; // Página do formulário para adicionar uma inscrição
     }
 
-    // Salvar nova inscrição
-    @PostMapping("/nova")
-    public String salvarInscricao(@ModelAttribute Inscricao inscricao) {
-        inscricaoService.saveInscricao(inscricao); // Salva a nova inscrição
-        return "redirect:/inscricoes"; // Redireciona para a lista de inscrições
-    }
-
-    // Exibir o formulário de edição de inscrição
+    // Exibe o formulário para editar uma inscrição existente
     @GetMapping("/editar/{id}")
-    public String formEditarInscricao(@PathVariable Long id, Model model) {
+    public String editarFormInscricao(@PathVariable Long id, Model model) {
         Inscricao inscricao = inscricaoService.getInscricaoById(id);
-        model.addAttribute("inscricao", inscricao);
-
+        if (inscricao == null) {
+            model.addAttribute("erro", "Inscrição não encontrada.");
+            return "redirect:/inscricoes"; // Redireciona caso a inscrição não seja encontrada
+        }
         List<Estudante> estudantes = estudanteService.getAllEstudantes();
         List<Disciplina> disciplinas = disciplinaService.getAllDisciplinas();
+        model.addAttribute("inscricao", inscricao);
         model.addAttribute("estudantes", estudantes);
         model.addAttribute("disciplinas", disciplinas);
-
-        return "form/form-inscricao"; // Exibe o formulário de edição
+        return "form/form-inscricao"; // Página para editar a inscrição
     }
 
-    // Salvar alterações da inscrição
-    @PostMapping("/editar/{id}")
-    public String editarInscricao(@PathVariable Long id, @ModelAttribute Inscricao inscricao) {
-        inscricao.setId(id); // Mantém o ID correto
-        inscricaoService.saveInscricao(inscricao); // Salva a edição
-
+    // Adiciona ou atualiza uma inscrição
+    @PostMapping
+    public String salvarInscricao(@ModelAttribute Inscricao inscricao) {
+        inscricaoService.saveInscricao(inscricao);
         return "redirect:/inscricoes"; // Redireciona para a lista de inscrições
     }
 
-    // Excluir inscrição
+    // Exclui uma inscrição
     @GetMapping("/excluir/{id}")
-    public String excluirInscricao(@PathVariable Long id) {
-        inscricaoService.deleteInscricao(id); // Exclui a inscrição
+    public String excluirInscricao(@PathVariable Long id, Model model) {
+        try {
+            inscricaoService.deleteInscricao(id);
+        } catch (IllegalStateException e) {
+            model.addAttribute("erro", e.getMessage());
+        }
         return "redirect:/inscricoes"; // Redireciona para a lista de inscrições
     }
 }
