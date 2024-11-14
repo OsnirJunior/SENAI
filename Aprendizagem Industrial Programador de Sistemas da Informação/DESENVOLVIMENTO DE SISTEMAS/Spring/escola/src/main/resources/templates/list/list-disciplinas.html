@@ -7,7 +7,11 @@
 </head>
 <body>
     <h1>Disciplinas</h1>
-    <a th:href="@{/disciplinas/nova}">Adicionar Nova Disciplina</a>
+
+    <div>
+        <a th:href="@{/disciplinas/nova}">Adicionar Nova Disciplina</a>
+    </div>
+
     <table>
         <thead>
             <tr>
@@ -32,7 +36,9 @@
         </tbody>
     </table>
     
-    <a href="/estudantes" class="button">Cadastrar Estudantes</a>
-    <a href="/inscricoes" class="button">Cadastrar Inscrição</a>
+    <div>
+        <a href="/estudantes" class="button">Cadastrar Estudantes</a>
+        <a href="/inscricoes" class="button">Cadastrar Inscrições</a>
+    </div>
 </body>
 </html>
