@@ -26,15 +26,13 @@ public class InscricaoController {
     @Autowired
     private DisciplinaService disciplinaService;
 
-    // Exibe a lista de inscrições
     @GetMapping
     public String listInscricoes(Model model) {
         List<Inscricao> inscricoes = inscricaoService.getAllInscricoes();
         model.addAttribute("inscricoes", inscricoes);
-        return "list/list-inscricoes"; // Página de listagem das inscrições
+        return "list/list-inscricoes";
     }
 
-    // Exibe o formulário para adicionar ou editar uma inscrição
     @GetMapping("/novo")
     public String novoFormInscricao(Model model) {
         List<Estudante> estudantes = estudanteService.getAllEstudantes();
@@ -42,33 +40,31 @@ public class InscricaoController {
         model.addAttribute("estudantes", estudantes);
         model.addAttribute("disciplinas", disciplinas);
         model.addAttribute("inscricao", new Inscricao());
-        return "form/form-inscricao"; // Página do formulário para adicionar uma inscrição
+        return "form/form-inscricao";
     }
 
-    // Exibe o formulário para editar uma inscrição existente
     @GetMapping("/editar/{id}")
     public String editarFormInscricao(@PathVariable Long id, Model model) {
         Inscricao inscricao = inscricaoService.getInscricaoById(id);
         if (inscricao == null) {
             model.addAttribute("erro", "Inscrição não encontrada.");
-            return "redirect:/inscricoes"; // Redireciona caso a inscrição não seja encontrada
+            return "redirect:/inscricoes";
         }
         List<Estudante> estudantes = estudanteService.getAllEstudantes();
         List<Disciplina> disciplinas = disciplinaService.getAllDisciplinas();
         model.addAttribute("inscricao", inscricao);
         model.addAttribute("estudantes", estudantes);
         model.addAttribute("disciplinas", disciplinas);
-        return "form/form-inscricao"; // Página para editar a inscrição
+        return "form/form-inscricao";
     }
 
     // Adiciona ou atualiza uma inscrição
     @PostMapping
     public String salvarInscricao(@ModelAttribute Inscricao inscricao) {
         inscricaoService.saveInscricao(inscricao);
-        return "redirect:/inscricoes"; // Redireciona para a lista de inscrições
+        return "redirect:/inscricoes";
     }
 
-    // Exclui uma inscrição
     @GetMapping("/excluir/{id}")
     public String excluirInscricao(@PathVariable Long id, Model model) {
         try {
@@ -76,6 +72,6 @@ public class InscricaoController {
         } catch (IllegalStateException e) {
             model.addAttribute("erro", e.getMessage());
         }
-        return "redirect:/inscricoes"; // Redireciona para a lista de inscrições
+        return "redirect:/inscricoes";
     }
 }

@@ -14,13 +14,12 @@ public class Estudante {
     private Long id;
 
     private String nome;
-    private LocalDate data_nascimento; // Data de nascimento do estudante
-    private String email; // Novo campo de email
+    private LocalDate data_nascimento;
+    private String email;
 
     @OneToMany(mappedBy = "estudante")
     private Set<Inscricao> inscricoes = new HashSet<>();
 
-    // Getters e Setters para 'id', 'nome', 'data_nascimento', e 'email'
     public Long getId() {
         return id;
     }

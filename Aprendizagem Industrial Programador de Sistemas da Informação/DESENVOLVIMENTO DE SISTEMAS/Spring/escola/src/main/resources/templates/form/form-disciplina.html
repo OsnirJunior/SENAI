@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulário de Disciplina</title>
-    <link rel="stylesheet" href="/css/style.css"> <!-- Seu arquivo CSS -->
+    <link rel="stylesheet" href="/css/style.css"> 
 </head>
 <body>
     <h1 th:text="${#strings.isEmpty(disciplina.id) ? 'Nova Disciplina' : 'Editar Disciplina'}"></h1>
@@ -17,7 +17,7 @@
         <label for="descricao">Descrição:</label>
         <textarea id="descricao" th:field="*{descricao}" required></textarea>
         <br>
-        <label for="professor">Professor:</label> <!-- Novo campo para o professor -->
+        <label for="professor">Professor:</label> 
         <input type="text" id="professor" th:field="*{professor}" required />
         
         <button type="submit">Salvar</button>

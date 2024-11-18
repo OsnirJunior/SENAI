@@ -12,13 +12,12 @@ public class Disciplina {
     private Long id;
 
     private String nome;
-    private String descricao; // Descrição da disciplina
-    private String professor; // Nome do professor responsável pela disciplina
+    private String descricao; 
+    private String professor; 
 
     @OneToMany(mappedBy = "disciplina")
     private Set<Inscricao> inscricoes = new HashSet<>();
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

@@ -18,9 +18,8 @@ public class Inscricao {
     @JoinColumn(name = "disciplina_id")
     private Disciplina disciplina;
 
-    private LocalDate dataInscricao; // Data da inscrição
+    private LocalDate dataInscricao;
 
-    // Getters e Setters
 
     public Long getId() {
         return id;

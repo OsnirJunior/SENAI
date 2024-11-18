@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de Disciplinas</title>
-    <link rel="stylesheet" href="/css/style.css"> <!-- Seu arquivo CSS -->
+    <link rel="stylesheet" href="/css/style.css"> 
 </head>
 <body>
     <h1>Disciplinas</h1>
@@ -18,7 +18,7 @@
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Descrição</th>
-                <th>Professor</th> <!-- Nova coluna para o professor -->
+                <th>Professor</th> 
                 <th>Ações</th>
             </tr>
         </thead>
@@ -27,7 +27,7 @@
                 <td th:text="${disciplina.id}"></td>
                 <td th:text="${disciplina.nome}"></td>
                 <td th:text="${disciplina.descricao}"></td>
-                <td th:text="${disciplina.professor}">Professor</td> <!-- Exibe o professor -->
+                <td th:text="${disciplina.professor}">Professor</td> 
                 <td>
                     <a th:href="@{/disciplinas/editar/{id}(id=${disciplina.id})}">Editar</a>
                     <a th:href="@{/disciplinas/excluir/{id}(id=${disciplina.id})}">Excluir</a>

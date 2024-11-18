@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastrar Inscrição</title>
-    <link rel="stylesheet" href="/css/style.css"> <!-- Seu arquivo CSS -->
+    <link rel="stylesheet" href="/css/style.css"> 
 </head>
 <body>
     <h2>Cadastrar Inscrição</h2>
 
     <form th:action="@{/inscricoes}" th:object="${inscricao}" method="post">
-        <input type="hidden" th:field="*{id}" /> <!-- Campo oculto para o ID da inscrição -->
+        <input type="hidden" th:field="*{id}" /> 
         
         <div>
             <label for="estudante">Estudante</label>
