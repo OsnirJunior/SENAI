@@ -1,6 +1,7 @@
 package com.psii.escola.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -18,7 +19,7 @@ public class Inscricao {
     @JoinColumn(name = "disciplina_id")
     private Disciplina disciplina;
 
-    private LocalDate dataInscricao;
+    private Date dataInscricao;
 
 
     public Long getId() {
@@ -45,11 +46,11 @@ public class Inscricao {
         this.disciplina = disciplina;
     }
 
-    public LocalDate getDataInscricao() {
+    public Date getDataInscricao() {
         return dataInscricao;
     }
 
-    public void setDataInscricao(LocalDate dataInscricao) {
+    public void setDataInscricao(Date dataInscricao) {
         this.dataInscricao = dataInscricao;
     }
 }

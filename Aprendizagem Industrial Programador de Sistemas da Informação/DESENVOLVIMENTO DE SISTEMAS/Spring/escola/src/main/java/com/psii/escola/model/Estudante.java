@@ -1,6 +1,6 @@
 package com.psii.escola.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,7 +14,7 @@ public class Estudante {
     private Long id;
 
     private String nome;
-    private LocalDate data_nascimento;
+    private Date data_nascimento;
     private String email;
 
     @OneToMany(mappedBy = "estudante")
@@ -36,11 +36,11 @@ public class Estudante {
         this.nome = nome;
     }
 
-    public LocalDate getData_nascimento() {
+    public Date getData_nascimento() {
         return data_nascimento;
     }
 
-    public void setData_nascimento(LocalDate data_nascimento) {
+    public void setData_nascimento(Date data_nascimento) {
         this.data_nascimento = data_nascimento;
     }
 

@@ -8,8 +8,10 @@
 <body>
     <h1>Disciplinas</h1>
 
-    <div>
-        <a th:href="@{/disciplinas/nova}">Adicionar Nova Disciplina</a>
+    <div class="button-container">
+        <a href="/estudantes" class="button">Cadastrar Estudantes</a>
+        <a th:href="@{/disciplinas/nova}" class="button">Adicionar Nova Disciplina</a>
+        <a href="/inscricoes" class="button">Cadastrar Inscrições</a>
     </div>
 
     <table>
@@ -35,10 +37,5 @@
             </tr>
         </tbody>
     </table>
-    
-    <div>
-        <a href="/estudantes" class="button">Cadastrar Estudantes</a>
-        <a href="/inscricoes" class="button">Cadastrar Inscrições</a>
-    </div>
 </body>
 </html>
